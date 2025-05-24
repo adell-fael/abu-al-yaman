@@ -59,7 +59,7 @@ progress_bar() {
 
 # ASCII Art Banner
 echo -e "
-${blue}
+${light_blue}
 __   __ _    __  __    _    __  __    _    
 \ \ / // \  |  \/  |  / \  |  \/  |  / \   
  \ V // _ \ | |\/| | / _ \ | |\/| | / _ \  
