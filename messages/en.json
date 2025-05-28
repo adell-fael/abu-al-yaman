@@ -1,0 +1,216 @@
+{
+	"header": {
+		"logo": "Abu Al Yaman",
+		"nav": {
+			"home": "Home"
+		}
+	},
+	"home": {
+		"hero": {
+			"title": "Abu Al Yaman Menu",
+			"subtitle": "Authentic Middle Eastern Cuisine"
+		},
+
+		"cta": {
+			"title": "Experience Authentic Flavors",
+			"subtitle": "All dishes are prepared fresh with traditional recipes and the finest ingredients",
+			"orderNow": "Order Now",
+			"viewLocation": "View Location"
+		}
+	},
+	"menu": {
+		"signaturePlates": {
+			"title": "Signature Dishes",
+			"muhashi": {
+				"title": "Muhashi (Stuffed vegetables, all kinds)",
+				"description": "Traditional Middle Eastern stuffed vegetables including eggplant, zucchini, and peppers filled with seasoned rice and herbs"
+			},
+			"kubeh": {
+				"title": "Kubeh (All varieties)",
+				"description": "Traditional dumplings made with bulgur wheat and filled with spiced ground meat, a beloved Levantine comfort food"
+			},
+			"frenchPlate": {
+				"title": "French Platter (small)",
+				"description": "A sampler platter featuring Nest Al Ballel, Yalanji, Kubeh, Tabbouleh, Musakhan, Pizza & Sambousek"
+			}
+		},
+		"mansaf": {
+			"title": "Mansaf",
+			"jordanian": {
+				"title": "Jordanian Mansaf",
+				"description": "Jordan's national dish featuring tender lamb cooked in fermented dried yogurt sauce, served with fragrant rice"
+			},
+			"beef": {
+				"title": "Beef Mansaf",
+				"description": "Classic mansaf prepared with succulent beef instead of lamb, maintaining the traditional jameed yogurt sauce"
+			},
+			"chicken": {
+				"title": "Chicken Mansaf",
+				"description": "A lighter version of the traditional dish featuring tender chicken in tangy jameed sauce over seasoned rice"
+			},
+			"sujukFatteh": {
+				"title": "Sujuk with Fatteh (on request)",
+				"description": "Spicy Armenian sausage served with crispy bread, yogurt, and garlic - a perfect fusion of flavors"
+			},
+			"salad": {
+				"title": "Tabbouleh & Mixed Salads",
+				"description": "Fresh parsley salad with tomatoes, mint, and bulgur, plus seasonal mixed greens with olive oil dressing"
+			},
+			"mandi": {
+				"title": "Mansaf Mandi",
+				"description": "Aromatic rice dish with tender meat slow-cooked with traditional Yemeni spices and herbs"
+			},
+			"mixedGrill": {
+				"title": "Mansaf with Mixed Grill",
+				"description": "Traditional mansaf accompanied by an assortment of grilled meats including kebab and chicken"
+			},
+			"riceFreekeh": {
+				"title": "Rice or Freekeh (customizable)",
+				"description": "Choice of fragrant basmati rice or nutritious roasted green wheat (freekeh) as your preferred grain base"
+			}
+		},
+		"coldMezze": {
+			"title": "Cold Mezze",
+			"yalanji": {
+				"title": "Yalanji (Stuffed grape leaves)",
+				"description": "Tender grape leaves stuffed with seasoned rice, pine nuts, and fresh herbs - a Mediterranean classic"
+			},
+			"mutabbal": {
+				"title": "Mutabbal",
+				"description": "Smoky roasted eggplant dip blended with tahini, garlic, lemon juice, and olive oil"
+			},
+			"babaGhanoush": {
+				"title": "Baba Ghanoush",
+				"description": "Creamy eggplant dip with pomegranate molasses, herbs, and chopped vegetables for extra texture"
+			},
+			"potatoSalad": {
+				"title": "Potato Salad",
+				"description": "Middle Eastern style potato salad with herbs, lemon dressing, and Mediterranean seasonings"
+			},
+			"hummus": {
+				"title": "Hummus",
+				"description": "Classic chickpea dip made with tahini, garlic, lemon juice, and olive oil - creamy and delicious"
+			},
+			"fattoush": {
+				"title": "Fattoush",
+				"description": "Mixed greens salad with crispy pita chips, vegetables, and tangy sumac dressing"
+			},
+			"shaibiyatMeat": {
+				"title": "Shaibiyat with Meat",
+				"description": "Delicate pastry filled with seasoned ground meat and baked to golden perfection"
+			},
+			"waraqDawali": {
+				"title": "Warak Dawali (Grape Leaves)",
+				"description": "Traditional stuffed grape leaves with rice, herbs, and spices in a lemony broth"
+			},
+			"shishBarak": {
+				"title": "Shish Barak",
+				"description": "Small meat dumplings cooked in creamy yogurt sauce with garlic and mint"
+			},
+			"meatInDish": {
+				"title": "Meat in a Baking Dish",
+				"description": "Tender meat baked with vegetables and aromatic spices in a traditional clay dish"
+			}
+		},
+		"bakedGoods": {
+			"title": "Baked Goods",
+			"kaekMaamoulDate": {
+				"title": "Kaak Maamoul with Dates",
+				"description": "Traditional semolina cookies filled with sweet date paste and dusted with powdered sugar"
+			},
+			"kaekMaamoulWalnut": {
+				"title": "Maamoul with Walnuts",
+				"description": "Delicate shortbread cookies stuffed with spiced walnuts and rose water for a floral note"
+			},
+			"kaekMaamoulPistachio": {
+				"title": "Maamoul with Pistachios",
+				"description": "Buttery cookies filled with ground pistachios and orange blossom water"
+			},
+			"kaekMaamoulCashew": {
+				"title": "Maamoul with Cashews",
+				"description": "Rich semolina cookies with creamy cashew filling and hints of cardamom"
+			},
+			"brazouqPlain": {
+				"title": "Brazouq (Plain/Syrian Style)",
+				"description": "Traditional Syrian twisted bread sticks, crispy outside and soft inside"
+			},
+			"brazouqGhee": {
+				"title": "Brazouq in Ghee",
+				"description": "Classic bread sticks prepared with clarified butter for extra richness and flavor"
+			}
+		},
+		"savoryPastries": {
+			"title": "Savory Pastries",
+			"fatayerCheese": {
+				"title": "Cheese Fatayer",
+				"description": "Boat-shaped pastries filled with creamy white cheese, herbs, and a touch of nigella seeds"
+			},
+			"fatayerZaatar": {
+				"title": "Zaatar Fatayer",
+				"description": "Traditional flatbreads topped with za'atar herb blend, olive oil, and sesame seeds"
+			},
+			"fatayerSpinach": {
+				"title": "Spinach Fatayer",
+				"description": "Triangular pastries stuffed with sautéed spinach, onions, pine nuts, and lemon juice"
+			},
+			"pizzaAll": {
+				"title": "Pizza (All types)",
+				"description": "Middle Eastern style flatbread pizzas with various toppings including meat, cheese, and vegetables"
+			},
+			"nestAlBallel": {
+				"title": "Nest Al Ballel",
+				"description": "Crispy phyllo pastry nests filled with seasoned cheese and herbs, baked until golden"
+			},
+			"sambousek": {
+				"title": "Sambousek",
+				"description": "Crispy fried pastries filled with spiced meat or cheese, perfect as appetizers or snacks"
+			}
+		},
+		"pasta": {
+			"title": "Pasta",
+			"bechamel": {
+				"title": "Macarona Bechamel",
+				"description": "Baked pasta layers with creamy béchamel sauce, ground meat, and melted cheese on top"
+			},
+			"spaghetti": {
+				"title": "Spaghetti",
+				"description": "Classic spaghetti with your choice of meat sauce, marinara, or garlic and olive oil"
+			},
+			"tomato": {
+				"title": "Macarona with Tomato Sauce",
+				"description": "Pasta in rich tomato sauce with herbs, garlic, and a touch of Middle Eastern spices"
+			},
+			"labneh": {
+				"title": "Macarona with Labneh",
+				"description": "Unique pasta dish with creamy strained yogurt sauce, garlic, and fresh herbs"
+			},
+			"vegetables": {
+				"title": "Macarona with Vegetables",
+				"description": "Healthy pasta with seasonal vegetables, olive oil, and Mediterranean seasonings"
+			},
+			"cheese": {
+				"title": "Macarona with Cheese",
+				"description": "Cheesy pasta with a blend of Middle Eastern cheeses and aromatic herbs"
+			}
+		},
+		"grill": {
+			"title": "Grill",
+			"kebabMeatChicken": {
+				"title": "Meat & Chicken Kebab",
+				"description": "Juicy grilled skewers of marinated lamb and chicken with onions and peppers"
+			},
+			"shawakfMeatChicken": {
+				"title": "Meat & Chicken Shish Tawook",
+				"description": "Tender marinated chicken and meat cubes grilled to perfection with garlic sauce"
+			},
+			"thighs": {
+				"title": "Chicken Thighs",
+				"description": "Succulent grilled chicken thighs marinated in Middle Eastern spices and herbs"
+			},
+			"wings": {
+				"title": "Chicken Wings",
+				"description": "Crispy grilled wings with aromatic spice rub and served with garlic sauce"
+			}
+		}
+	}
+}
