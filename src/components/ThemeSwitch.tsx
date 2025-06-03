@@ -17,10 +17,12 @@ const ThemeSwitch = () => {
 	useEffect(() => {
 		themeChange(false)
 		// Get theme from localStorage on component mount
-		const savedTheme = localStorage.getItem('theme') || LIGHT_THEME
+		const savedTheme = localStorage.getItem('theme')
 
-		setTheme(savedTheme)
-		document.documentElement.setAttribute('data-theme', savedTheme)
+		if (savedTheme) {
+			setTheme(savedTheme)
+			document.documentElement.setAttribute('data-theme', savedTheme)
+		}
 	}, [])
 
 	const handleThemeChange = (e: React.ChangeEvent<HTMLInputElement>) => {

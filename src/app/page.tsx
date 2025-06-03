@@ -3,32 +3,28 @@ import { getMessages } from 'next-intl/server'
 import { CTA, Hero } from '@/components'
 
 // Random food images from Unsplash
-const getRandomFoodImage = (category: string) => {
+const getFoodImage = (category: string) => {
 	const images = {
 		muhashi:
-			'https://images.unsplash.com/photo-1574484284002-952d92456975?w=500&h=300&fit=crop',
-		kubeh:
-			'https://images.unsplash.com/photo-1574484284002-952d92456975?w=500&h=300&fit=crop',
+			'https://amwhatieat.com/wp-content/uploads/2019/09/mahshi-e1568518288665.jpg',
+		kubeh: 'https://www.simplyleb.com/wp-content/uploads/Kibbi-26.jpg',
 		mansaf:
-			'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=500&h=300&fit=crop',
+			'https://www.seriouseats.com/thmb/EgBZ3JxNFUZAd4rMLcZWzGZqaaE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20221208-Mansaf-Mai-Kakish-hero-ec9c515c00d24b5c9ef567854036f044.JPG',
 		coldMezze:
-			'https://images.unsplash.com/photo-1544025162-d76694265947?w=500&h=300&fit=crop',
+			'https://media-cdn.tripadvisor.com/media/photo-s/1b/59/c0/e5/cold-mezze.jpg',
 		bakedGoods:
-			'https://images.unsplash.com/photo-1549007994-cb92caebd54b?w=500&h=300&fit=crop',
+			'https://images.unsplash.com/photo-1595526417596-c0fdbf75287b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
 		savoryPastries:
-			'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&h=300&fit=crop',
+			'https://plus.unsplash.com/premium_photo-1663133722519-65842119f62f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
 		pasta:
-			'https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=500&h=300&fit=crop',
+			'https://images.unsplash.com/photo-1551183053-bf91a1d81141?q=80&w=2132&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
 		grill:
-			'https://images.unsplash.com/photo-1544025162-d76694265947?w=500&h=300&fit=crop',
-		mixedPlatter:
-			'https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=500&h=300&fit=crop',
+			'https://images.unsplash.com/photo-1589854880846-842b8fe2ba4b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+		signaturePlates:
+			'https://images.unsplash.com/photo-1611793413292-9a3f7917380f?q=80&w=1968&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
 	}
 
-	return (
-		images[category as keyof typeof images] ||
-		'https://images.unsplash.com/photo-1544025162-d76694265947?w=500&h=300&fit=crop'
-	)
+	return images[category as keyof typeof images]
 }
 
 // Simulate a delay
@@ -41,7 +37,7 @@ export default async function Home() {
 	const menuSections = messages.menu
 
 	// Add a 3 second delay to simulate loading
-	await delay(3000)
+	await delay(2000)
 
 	return (
 		<div className="min-h-screen">
@@ -65,7 +61,7 @@ export default async function Home() {
 										<img
 											alt={categoryKey}
 											className="mb-6 h-64 w-full rounded-lg object-cover shadow-lg"
-											src={getRandomFoodImage(categoryKey)}
+											src={getFoodImage(categoryKey)}
 										/>
 										<h2 className="text-secondary mb-4 text-3xl font-bold capitalize md:text-4xl">
 											{title}
@@ -82,13 +78,13 @@ export default async function Home() {
 										).map(([itemKey, item]) => (
 											<div
 												key={itemKey}
-												className="bg-base-200 rounded-lg p-6 shadow-md transition-shadow duration-300 hover:shadow-lg"
+												className="bg-base-200 rounded-lg shadow-md transition-shadow duration-300 hover:shadow-lg"
 											>
-												<div className="space-y-3">
-													<h3 className="text-base-content text-lg font-semibold">
+												<div className="collapse-arrow collapse" tabIndex={0}>
+													<h3 className="collapse-title text-base-content text-lg font-semibold">
 														{item.title}
 													</h3>
-													<p className="text-base-content/70 text-sm leading-relaxed">
+													<p className="collapse-content text-base-content/70 text-sm leading-relaxed">
 														{item.description}
 													</p>
 												</div>
