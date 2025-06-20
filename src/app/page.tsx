@@ -1,6 +1,7 @@
 import { getMessages } from 'next-intl/server'
 
-import { CTA, Hero } from '@/components'
+import { Hero } from '@/components'
+import { MenuView } from '@/views'
 
 // Random food images from Unsplash
 const getFoodImage = (category: string) => {
@@ -30,76 +31,51 @@ const getFoodImage = (category: string) => {
 // Simulate a delay
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 
+// interface HomeProps {
+// 	searchParams: { category?: string }
+// }
+
 export default async function Home() {
 	const messages = await getMessages()
-
-	// Get menu sections from messages
 	const menuSections = messages.menu
 
-	// Add a 3 second delay to simulate loading
-	await delay(2000)
+	// Prepare categories for the client component
+	const categories = Object.entries(menuSections).map(([key, data]) => ({
+		key,
+		title: data.title,
+	}))
+
+	// Prepare menu data for client component
+	const menuData = Object.entries(menuSections).map(
+		([categoryKey, categoryData]) => {
+			const { title, ...dishes } = categoryData as {
+				title: string
+				[key: string]: { title: string; description: string } | string
+			}
+
+			return {
+				categoryKey,
+				title,
+				image: getFoodImage(categoryKey),
+				dishes: Object.entries(
+					dishes as Record<string, { title: string; description: string }>
+				),
+			}
+		}
+	)
+
+	await delay(2000) // You can remove this line if you want
 
 	return (
 		<div className="min-h-screen">
 			{/* Hero Section */}
 			<Hero />
 
-			{/* Menu Categories */}
-			<section className="py-16">
-				<div className="mx-auto max-w-screen-xl px-4">
-					<div className="grid gap-16">
-						{Object.entries(menuSections).map(([categoryKey, categoryData]) => {
-							const { title, ...dishes } = categoryData as {
-								title: string
-								[key: string]: { title: string; description: string } | string
-							}
-
-							return (
-								<div key={categoryKey} className="space-y-8">
-									{/* Category Header */}
-									<div className="text-center">
-										<img
-											alt={categoryKey}
-											className="mb-6 h-64 w-full rounded-lg object-cover shadow-lg"
-											src={getFoodImage(categoryKey)}
-										/>
-										<h2 className="text-secondary mb-4 text-3xl font-bold capitalize md:text-4xl">
-											{title}
-										</h2>
-									</div>
-
-									{/* Menu Items Grid */}
-									<div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-										{Object.entries(
-											dishes as Record<
-												string,
-												{ title: string; description: string }
-											>
-										).map(([itemKey, item]) => (
-											<div
-												key={itemKey}
-												className="bg-base-200 rounded-lg shadow-md transition-shadow duration-300 hover:shadow-lg"
-											>
-												<div className="collapse-arrow collapse" tabIndex={0}>
-													<h3 className="collapse-title text-base-content text-lg font-semibold">
-														{item.title}
-													</h3>
-													<p className="collapse-content text-base-content/70 text-sm leading-relaxed">
-														{item.description}
-													</p>
-												</div>
-											</div>
-										))}
-									</div>
-								</div>
-							)
-						})}
-					</div>
-				</div>
-			</section>
+			{/* Menu Section - Now client-side */}
+			<MenuView categories={categories} menuData={menuData} />
 
 			{/* Call to Action */}
-			<CTA />
+			{/* <CTA /> */}
 		</div>
 	)
 }

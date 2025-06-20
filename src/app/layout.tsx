@@ -9,6 +9,7 @@ import { Rubik } from 'next/font/google'
 import { getUserLocale } from '@/services/locale'
 import { SkeletonLayout } from '@/_layouts'
 import { cn } from '@/utils'
+import { SiteData } from '@/config'
 
 const rubik = Rubik({
 	weight: ['300', '400', '500', '600', '700'],
@@ -16,8 +17,8 @@ const rubik = Rubik({
 })
 
 export const metadata: Metadata = {
-	title: 'Abu Al Yaman',
-	description: 'Restaurant',
+	title: SiteData.title,
+	description: SiteData.description,
 }
 
 export default async function RootLayout({

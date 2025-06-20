@@ -7,7 +7,10 @@ class Href {
 	 * Returns the home page URL
 	 * @returns The home page URL
 	 */
-	static homePage = () => '/'
+	public static readonly homePage = () => '/'
+
+	public static readonly categoryFilter = (categoryKey: string) =>
+		Href.homePage() + `?category=${categoryKey}`
 }
 
 export default Href
