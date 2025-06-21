@@ -19,6 +19,21 @@ const rubik = Rubik({
 export const metadata: Metadata = {
 	title: SiteData.title,
 	description: SiteData.description,
+	icons: {
+		icon: ['favicon-16x16.png', 'favicon-32x32.png'],
+		apple: 'apple-touch-icon.png',
+	},
+	openGraph: {
+		title: SiteData.title,
+		description: SiteData.description,
+		images: ['android-chrome-192x192.png', 'android-chrome-512x512.png'],
+	},
+	// twitter: {
+	// 	card: 'summary_large_image',
+	// 	title: siteConfig.title,
+	// 	description: siteConfig.description,
+	// 	images: [siteConfig.LOGO_URL],
+	// },
 }
 
 export default async function RootLayout({

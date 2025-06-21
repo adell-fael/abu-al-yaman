@@ -1,10 +1,9 @@
 'use client'
-
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 import { MenuFilter } from '@/components'
 
-interface MenuSectionProps {
+interface MenuViewProps {
 	categories: Array<{ key: string; title: string }>
 	menuData: Array<{
 		categoryKey: string
@@ -14,7 +13,7 @@ interface MenuSectionProps {
 	}>
 }
 
-function MenuSection({ categories, menuData }: MenuSectionProps) {
+function MenuView({ categories, menuData }: MenuViewProps) {
 	const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
 
 	// Filter menu data based on selected category
@@ -77,4 +76,4 @@ function MenuSection({ categories, menuData }: MenuSectionProps) {
 	)
 }
 
-export default MenuSection
+export default MenuView
