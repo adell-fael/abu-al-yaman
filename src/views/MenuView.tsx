@@ -46,7 +46,7 @@ function MenuSection({ categories, menuData }: MenuSectionProps) {
 									className="mb-6 h-64 w-full rounded-lg object-cover shadow-lg"
 									src={image}
 								/>
-								<h2 className="text-secondary mb-4 text-3xl font-bold capitalize md:text-4xl">
+								<h2 className="text-primary mb-4 text-3xl font-bold capitalize md:text-4xl">
 									{title}
 								</h2>
 							</div>

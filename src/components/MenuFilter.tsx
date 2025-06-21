@@ -49,7 +49,7 @@ function MenuFilter({ categories, onFilterChange }: MenuFilterProps) {
 			{selectedCategory && (
 				<button
 					aria-label="Clear filter"
-					className="btn btn-square btn-secondary"
+					className="btn btn-square btn-primary"
 					type="button"
 					onClick={handleReset}
 				>
@@ -62,7 +62,7 @@ function MenuFilter({ categories, onFilterChange }: MenuFilterProps) {
 					key={key}
 					aria-label={title}
 					className={cn(
-						`btn btn-secondary`,
+						`btn btn-primary`,
 						selectedCategory && selectedCategory === key && 'btn-active',
 						selectedCategory && selectedCategory !== key && 'hidden'
 					)}

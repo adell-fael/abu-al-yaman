@@ -25,11 +25,11 @@ const ScrollToTop = () => {
 
 	return (
 		<button
-			className="btn btn-circle btn-primary fixed right-5 bottom-10"
+			className="btn btn-circle btn-accent fixed right-5 bottom-10"
 			onClick={handleScrollToTop}
 		>
 			<svg
-				className="fill-primary-content size-5"
+				className="fill-accent-content size-5"
 				viewBox="0 0 492.002 492.002"
 				xmlns="http://www.w3.org/2000/svg"
 			>
