@@ -4,25 +4,27 @@ import React, { useState } from 'react'
 import { MenuFilter } from '@/components'
 
 interface MenuViewProps {
-	categories: Array<{ key: string; title: string }>
-	menuData: Array<{
+	menuData: {
 		categoryKey: string
 		title: string
 		image: string
 		dishes: Array<[string, { title: string; description: string }]>
-	}>
+	}[]
 }
 
-function MenuView({ categories, menuData }: MenuViewProps) {
-	const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
+function MenuView({ menuData }: MenuViewProps) {
+	const categoriesKeys = Array.from(new Set(menuData.map((x) => x.categoryKey)))
+
+	const [selectedCategory, setSelectedCategory] = useState<string[]>([])
 
 	// Filter menu data based on selected category
-	const filteredMenuData = selectedCategory
-		? menuData.filter((item) => item.categoryKey === selectedCategory)
-		: menuData
+	const filteredMenuData =
+		selectedCategory.length > 0
+			? menuData.filter((item) => selectedCategory.includes(item.categoryKey))
+			: menuData
 
-	const handleFilterChange = (categoryKey: string | null) => {
-		setSelectedCategory(categoryKey)
+	const handleFilterChange = (categoryKeys: string[]) => {
+		setSelectedCategory(categoryKeys)
 	}
 
 	return (
@@ -30,7 +32,8 @@ function MenuView({ categories, menuData }: MenuViewProps) {
 			<div className="mx-auto max-w-screen-xl px-4">
 				{/* Client-side Filter Component */}
 				<MenuFilter
-					categories={categories}
+					categories={categoriesKeys}
+					selectedCategories={selectedCategory}
 					onFilterChange={handleFilterChange}
 				/>
 

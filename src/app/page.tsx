@@ -39,12 +39,6 @@ export default async function Home() {
 	const messages = await getMessages()
 	const menuSections = messages.menu
 
-	// Prepare categories for the client component
-	const categories = Object.entries(menuSections).map(([key, data]) => ({
-		key,
-		title: data.title,
-	}))
-
 	// Prepare menu data for client component
 	const menuData = Object.entries(menuSections).map(
 		([categoryKey, categoryData]) => {
@@ -72,7 +66,7 @@ export default async function Home() {
 			<Hero />
 
 			{/* Menu Section - Now client-side */}
-			<MenuView categories={categories} menuData={menuData} />
+			<MenuView menuData={menuData} />
 
 			{/* Call to Action */}
 			{/* <CTA /> */}

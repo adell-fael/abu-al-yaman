@@ -1,19 +1,24 @@
 'use client'
 
-import { useCallback, useState, useRef } from 'react'
+import { useCallback, useRef } from 'react'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 
 import { cn } from '@/utils'
 
 interface MenuFilterProps {
-	categories: Array<{ key: string; title: string }>
-	onFilterChange: (categoryKey: string | null) => void
+	categories: string[]
+	onFilterChange: (categories: string[]) => void
+	selectedCategories: string[]
 }
 
-function MenuFilter({ categories, onFilterChange }: MenuFilterProps) {
-	const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
+function MenuFilter({
+	categories,
+	onFilterChange,
+	selectedCategories,
+}: MenuFilterProps) {
 	const containerRef = useRef<HTMLDivElement>(null)
+	const clearBtnRef = useRef<HTMLButtonElement>(null)
 
 	useGSAP(
 		() => {
@@ -21,33 +26,47 @@ function MenuFilter({ categories, onFilterChange }: MenuFilterProps) {
 				opacity: 0,
 				y: 10,
 				stagger: 0.1,
-				duration: 0.4,
+				duration: 0.2,
 				ease: 'power2.out',
 			})
 		},
-		{ scope: containerRef, dependencies: [selectedCategory] }
+		{ scope: containerRef, dependencies: [] }
+	)
+
+	useGSAP(
+		() => {
+			gsap.fromTo(
+				clearBtnRef.current,
+				{ opacity: 0, scale: 0.8 },
+				{ opacity: 1, scale: 1, duration: 0.3, ease: 'power2.out' }
+			)
+		},
+		{ scope: containerRef, dependencies: [selectedCategories.length > 0] }
 	)
 
 	const handleReset = useCallback(() => {
-		setSelectedCategory(null)
-		onFilterChange(null)
+		onFilterChange([])
 	}, [onFilterChange])
 
 	const handleCategoryChange = useCallback(
 		(categoryKey: string) => {
-			setSelectedCategory(categoryKey)
-			onFilterChange(categoryKey)
+			if (selectedCategories.includes(categoryKey)) {
+				onFilterChange(selectedCategories.filter((cat) => cat !== categoryKey))
+			} else {
+				onFilterChange([...selectedCategories, categoryKey])
+			}
 		},
-		[onFilterChange]
+		[onFilterChange, selectedCategories]
 	)
 
 	return (
 		<div
 			ref={containerRef}
-			className="bg-base-200 z-10 mb-14 flex flex-wrap justify-center gap-2 rounded-md p-4 filter"
+			className="bg-base-200 z-10 my-7 flex flex-wrap justify-center gap-2 rounded-md p-4 filter"
 		>
-			{selectedCategory && (
+			{selectedCategories.length > 0 && (
 				<button
+					ref={clearBtnRef}
 					aria-label="Clear filter"
 					className="btn btn-square btn-primary"
 					type="button"
@@ -57,19 +76,18 @@ function MenuFilter({ categories, onFilterChange }: MenuFilterProps) {
 				</button>
 			)}
 
-			{categories.map(({ key, title }) => (
+			{categories.map((x, idx) => (
 				<button
-					key={key}
-					aria-label={title}
+					key={x + idx}
+					aria-label={x}
 					className={cn(
-						`btn btn-primary`,
-						selectedCategory && selectedCategory === key && 'btn-active',
-						selectedCategory && selectedCategory !== key && 'hidden'
+						`btn btn-soft btn-primary`,
+						selectedCategories.includes(x) && 'btn-active'
 					)}
 					type="button"
-					onClick={() => handleCategoryChange(key)}
+					onClick={() => handleCategoryChange(x)}
 				>
-					{title}
+					{x}
 				</button>
 			))}
 		</div>
