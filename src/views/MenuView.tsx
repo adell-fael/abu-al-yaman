@@ -8,13 +8,15 @@ interface MenuViewProps {
 		categoryKey: string
 		title: string
 		image: string
-		dishes: Array<[string, { title: string; description: string }]>
+		dishes: [string, { title: string; description: string }][]
+	}[]
+	categoryTitles: {
+		key: string
+		title: string
 	}[]
 }
 
-function MenuView({ menuData }: MenuViewProps) {
-	const categoriesKeys = Array.from(new Set(menuData.map((x) => x.categoryKey)))
-
+function MenuView({ menuData, categoryTitles }: MenuViewProps) {
 	const [selectedCategory, setSelectedCategory] = useState<string[]>([])
 
 	// Filter menu data based on selected category
@@ -32,7 +34,7 @@ function MenuView({ menuData }: MenuViewProps) {
 			<div className="mx-auto max-w-screen-xl px-4">
 				{/* Client-side Filter Component */}
 				<MenuFilter
-					categories={categoriesKeys}
+					categories={categoryTitles}
 					selectedCategories={selectedCategory}
 					onFilterChange={handleFilterChange}
 				/>

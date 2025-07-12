@@ -7,7 +7,10 @@ import { useGSAP } from '@gsap/react'
 import { cn } from '@/utils'
 
 interface MenuFilterProps {
-	categories: string[]
+	categories: {
+		key: string
+		title: string
+	}[]
 	onFilterChange: (categories: string[]) => void
 	selectedCategories: string[]
 }
@@ -76,18 +79,18 @@ function MenuFilter({
 				</button>
 			)}
 
-			{categories.map((x, idx) => (
+			{categories.map((category, idx) => (
 				<button
-					key={x + idx}
-					aria-label={x}
+					key={category.key + idx}
+					aria-label={category.title}
 					className={cn(
 						`btn btn-soft btn-primary`,
-						selectedCategories.includes(x) && 'btn-active'
+						selectedCategories.includes(category.key) && 'btn-active'
 					)}
 					type="button"
-					onClick={() => handleCategoryChange(x)}
+					onClick={() => handleCategoryChange(category.key)}
 				>
-					{x}
+					{category.title}
 				</button>
 			))}
 		</div>

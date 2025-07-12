@@ -39,7 +39,7 @@ export default async function Home() {
 	const messages = await getMessages()
 	const menuSections = messages.menu
 
-	// Prepare menu data for client component
+	// Prepare menu data for client component with translated category titles
 	const menuData = Object.entries(menuSections).map(
 		([categoryKey, categoryData]) => {
 			const { title, ...dishes } = categoryData as {
@@ -58,6 +58,16 @@ export default async function Home() {
 		}
 	)
 
+	// Create a mapping of category keys to their translated titles for the filter
+	const categoryTitles = Object.entries(menuSections).map(
+		([categoryKey, categoryData]) => ({
+			key: categoryKey,
+			title: (categoryData as { title: string }).title,
+		})
+	)
+
+	console.log('🚀 ~ Home ~ menuData:', menuData)
+
 	await delay(2000) // You can remove this line if you want
 
 	return (
@@ -66,7 +76,7 @@ export default async function Home() {
 			<Hero />
 
 			{/* Menu Section - Now client-side */}
-			<MenuView menuData={menuData} />
+			<MenuView categoryTitles={categoryTitles} menuData={menuData} />
 
 			{/* Call to Action */}
 			{/* <CTA /> */}
